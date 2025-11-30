@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiredan App | Decentralized Agribusiness Marketplace</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+</head>
+<body class="theme-light">
+
+    <header>
+        <div class="logo">Wiredan App</div>
+        <div class="controls">
+            <select id="lang-selector" onchange="app.setLanguage(this.value)">
+                <option value="en">English</option>
+                <option value="ha">Hausa</option>
+                <option value="yo">Yoruba</option>
+                <option value="ig">Igbo</option>
+                <option value="vi">Vietnamese</option>
+            </select>
+            <select id="currency-selector" onchange="app.setCurrency(this.value)">
+                <option value="USD">USD</option>
+                <option value="NGN">₦ Naira</option>
+                <option value="VND">₫ Dong</option>
+                <option value="DAN">DAN Token</option>
+                <option value="SDA">SDA Coin</option>
+            </select>
+            <button id="theme-toggle" onclick="app.toggleTheme()">☀️</button>
+        </div>
+    </header>
+
+    <main id="app-container">
+        <section id="login-view" class="active">
+            <h2>Login to Wiredan</h2>
+            <form id="login-form">
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Log In</button>
+                <p>New user? <a href="#" onclick="app.showView('signup-view');">Create an account</a></p>
+            </form>
+            <div class="social-login">
+                <button onclick="app.socialLogin('google')">Login with Google</button>
+                <button onclick="app.socialLogin('microsoft')">Login with Microsoft</button>
+                <button onclick="app.socialLogin('apple')">Login with Apple</button>
+            </div>
+        </section>
+
+        <section id="signup-view" class="hidden">
+            <h2>Create Your Wiredan Account</h2>
+            <form id="signup-form">
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Confirm Password" required>
+                <button type="submit">Sign Up</button>
+                <p>Already have an account? <a href="#" onclick="app.showView('login-view');">Log In</a></p>
+            </form>
+        </section>
+
+        <section id="market-view" class="hidden">
+            <h2>Welcome, Verified Food Crop Trader!</h2>
+            <p>Your secure subaccount is active. Start exploring or listing crops.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Wiredan App. Decentralized Agribusiness Network.</p>
+        <div class="contact-links">
+            <a href="https://twitter.com/wilaya90" target="_blank">Twitter (@wilaya90)</a> |
+            <a href="mailto:dansidran@gmail.com">Support (dansidran@gmail.com)</a>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
