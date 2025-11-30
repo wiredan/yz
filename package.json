@@ -1,17 +1,16 @@
-{
-  "name": "wiredan",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "start": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
-  "devDependencies": {
-    "vite": "^5.0.0"
-  }
-}
+name = "wiredan-app"
+main = "worker/index.js"
+compatibility_date = "2024-01-01"
+
+account_id = "<YOUR_CLOUDFLARE_ACCOUNT_ID>"
+
+[[d1_databases]]
+binding = "WIREDAN_DB"
+database_name = "wiredan-db"
+database_id = "4e80c08b-47f5-4069-94a6-fcc22ac2a546"
+
+[[kv_namespaces]]
+binding = "WIREDAN_KV"
+id = "6b6ed34e782c437a80ddb6308a0fee5f"
+
+# NO [pages] section at all
