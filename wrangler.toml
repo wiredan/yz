@@ -15,4 +15,4 @@ database_id = "4e80c08b-47f5-4069-94a6-fcc22ac2a546"
 binding = "WIREDAN_KV"
 id = "6b6ed34e782c437a80ddb6308a0fee5f"
 
-# REMOVE the [site] section entirely - Pages should be separate
+# NO [pages] section - frontend is separate
