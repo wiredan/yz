@@ -56,3 +56,6 @@ CREATE TABLE events (
   payload TEXT,
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
+ALTER TABLE users ADD COLUMN kyc_status TEXT DEFAULT 'pending';
+ALTER TABLE users ADD COLUMN legal_name TEXT;
+ALTER TABLE users ADD COLUMN can_change_name INTEGER DEFAULT 1;
