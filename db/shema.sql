@@ -3,6 +3,9 @@ CREATE TABLE users (
   email TEXT UNIQUE,
   password TEXT,
   kyc_verified INTEGER DEFAULT 0,
+  kyc_status TEXT DEFAULT 'pending',
+  legal_name TEXT,
+  can_change_name INTEGER DEFAULT 1,
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -32,8 +35,11 @@ CREATE TABLE orders (
   quantity INTEGER,
   total_cents INTEGER,
   currency TEXT,
-  status TEXT DEFAULT 'created',
+  status TEXT DEFAULT 'created',   -- created, paid, shipped, delivered, dispute, released, refunded
   escrow_hold INTEGER DEFAULT 1,
+  tracking_number TEXT,
+  shipping_status TEXT DEFAULT 'pending',  -- pending, shipped, in_transit, delivered
+  dispute_status TEXT DEFAULT 'none',
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -43,11 +49,10 @@ CREATE TABLE escrow (
   buyer_id TEXT,
   seller_id TEXT,
   amount_cents INTEGER,
-  status TEXT DEFAULT 'held',
+  status TEXT DEFAULT 'held', -- held, released, refunded, dispute
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
-/* Optionally: fees log, events, admin logs */
 CREATE TABLE events (
   id TEXT PRIMARY KEY,
   entity_type TEXT,
@@ -56,6 +61,3 @@ CREATE TABLE events (
   payload TEXT,
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
-ALTER TABLE users ADD COLUMN kyc_status TEXT DEFAULT 'pending';
-ALTER TABLE users ADD COLUMN legal_name TEXT;
-ALTER TABLE users ADD COLUMN can_change_name INTEGER DEFAULT 1;
